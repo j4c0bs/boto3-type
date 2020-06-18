@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-__author__ = "Jeremy Jacobs"
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 
 
-from boto3_type import client
-from boto3_type import resource
-from boto3_type import s3
+from boto3_type import client, resource, s3  # noqa: F401
+from boto3_type.common import *  # noqa: F401, F403

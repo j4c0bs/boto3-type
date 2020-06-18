@@ -37,36 +37,21 @@ def resource(aws_credentials):
 
 
 @pytest.mark.parametrize(
-    "service_name, expected", [("s3", True), (["s3", "x"], True), ("ecs", False)]
+    "service_name, expected", [("s3", True), ("x", False), ("ecs", False)]
 )
 def test_client(service_name, expected, client):
     assert bt.client.istype(client, service_name) == expected
 
 
 @pytest.mark.parametrize(
-    "service_name, expected",
-    [("cloudwatch", True), (["x", "cloudwatch"], True), ("ecs", False)],
+    "service_name, expected", [("cloudwatch", True), ("x", False), ("ecs", False)],
 )
 def test_resource(service_name, expected, resource):
     assert bt.resource.istype(resource, service_name) == expected
 
 
 @pytest.mark.parametrize(
-    "name, expected", [("bucket", True), (["x", "bucket"], True), ("ecs", False)]
+    "name, expected", [("bucket", True), ("x", False), ("ecs", False)]
 )
 def test_s3(name, expected, bucket):
     assert bt.s3.istype(bucket, name) == expected
-
-
-@pytest.mark.parametrize(
-    "resource_service, service_names, expected",
-    [
-        ("a", "a", True),
-        ("A", "a", True),
-        ("A", ["a", "x"], True),
-        ("a", "x", False),
-        ("", "x", False),
-    ],
-)
-def test_compare(resource_service, service_names, expected):
-    assert bt.util.compare(resource_service, service_names) == expected

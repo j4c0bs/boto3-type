@@ -40,7 +40,7 @@ setup(
     packages=find_packages(exclude=["docs*", "tests*"]),
     include_package_data=False,
     install_requires=["boto3", "botocore"],
-    license="",  # TODO: <-----
+    license="BSD-2-Clause",
     keywords="aws boto3 botocore",
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -55,8 +55,8 @@ setup(
         "Programming Language :: Python :: 3.8",
     ],
     project_urls={
-        "Source": "https://github.com/j4c0bs/boto3_type",
-        "Bug Reports": "https://github.com/j4c0bs/boto3_type/issues",
+        "Source": "https://github.com/j4c0bs/boto3-type",
+        "Bug Reports": "https://github.com/j4c0bs/boto3-type/issues",
     },
-    url="https://github.com/j4c0bs",  # TODO <-----
+    url="https://github.com/j4c0bs/boto3-type",
 )
